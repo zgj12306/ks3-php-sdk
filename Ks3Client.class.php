@@ -1,4 +1,5 @@
 <?php
+namespace Ks3phpsdk;
 //使用时请在项目中引用该php文件
 //设置默认时区
 date_default_timezone_set('Asia/Shanghai');

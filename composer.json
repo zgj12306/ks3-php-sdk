@@ -1,0 +1,32 @@
+{  
+  "name": "jasxio/ks3-php-sdk",  
+  "description": "jasxio/ks3-php-sdk",  
+  "keywords": [  
+    "ks3-php-sdk"
+  ],  
+  "homepage": "https://github.com/jasxio/ks3-php-sdk",  
+  "type": "ks3-php-sdk-extension",  
+  "license": "MIT",  
+  "support": {  
+    "source": "https://github.com/jasxio/ks3-php-sdk"  
+  },  
+  "authors": [  
+    {  
+      "name": "tks3sdk",  
+      "email": "jasxio@sina.com"  
+    }  
+  ],  
+  "minimum-stability": "stable",  
+  "require": {  
+    "php": ">=5.4.0"
+     
+  },  
+  "autoload": {  
+    "psr-4": {  
+      "Ks3phpsdk\\": ""  
+    }  
+  },  
+  "config": {  
+    "process-timeout": 1800  
+  }  
+} 
