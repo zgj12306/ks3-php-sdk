@@ -1,5 +1,6 @@
 <?php
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."encryption".DIRECTORY_SEPARATOR."EncryptionUtil.php";
+namespace Ks3phpsdk\encryption;
+
 //下载
 class AESCBCStreamWriteCallBack{
 	private $iv;

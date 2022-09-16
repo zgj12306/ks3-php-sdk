@@ -1,5 +1,8 @@
 <?php
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."exceptions".DIRECTORY_SEPARATOR."Exceptions.php";
+namespace Ks3phpsdk\core;
+
+use Ks3phpsdk\exceptions\Ks3ClientException;
+
 class Logger{
 	function info($msg){
 		$this->log("INFO",$msg);

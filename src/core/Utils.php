@@ -1,5 +1,7 @@
 <?php
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."exceptions".DIRECTORY_SEPARATOR."Exceptions.php";
+namespace Ks3phpsdk\core;
+
+use Ks3phpsdk\exceptions\Ks3ClientException;
 
 class Utils{
 	public static function encodeUrl($url,$path=TRUE){

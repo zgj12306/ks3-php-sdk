@@ -1,19 +1,21 @@
 {  
-  "name": "jasxio/ks3-php-sdk",  
-  "description": "jasxio/ks3-php-sdk",  
+  "name": "zgj12306/ks3-php-sdk",
+  "description": "zgj12306/ks3-php-sdk",
   "keywords": [  
-    "ks3-php-sdk"
+    "ks3-php-sdk",
+    "ksyun",
+    "金山云"
   ],  
-  "homepage": "https://github.com/jasxio/ks3-php-sdk",  
+  "homepage": "https://github.com/zgj12306/ks3-php-sdk",
   "type": "ks3-php-sdk-extension",  
   "license": "MIT",  
   "support": {  
-    "source": "https://github.com/jasxio/ks3-php-sdk"  
+    "source": "https://github.com/zgj12306/ks3-php-sdk"
   },  
   "authors": [  
     {  
-      "name": "tks3sdk",  
-      "email": "jasxio@sina.com"  
+      "name": "zgj12306",
+      "email": "zgj12306@163.com"
     }  
   ],  
   "minimum-stability": "stable",  
@@ -23,8 +25,8 @@
   },  
   "autoload": {  
     "psr-4": {  
-      "Ks3phpsdk\\": ""  
-    }  
+      "Ks3phpsdk\\": "src"
+    }
   },  
   "config": {  
     "process-timeout": 1800  

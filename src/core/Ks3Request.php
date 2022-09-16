@@ -1,5 +1,5 @@
 <?php
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Utils.class.php";
+namespace Ks3phpsdk\core;
 
 class Ks3Request{
 	private $bucket;

@@ -1,5 +1,14 @@
 <?php
 namespace Ks3phpsdk;
+
+use Ks3phpsdk\core\API;
+use Ks3phpsdk\core\Ks3Request;
+use Ks3phpsdk\core\Logger;
+use Ks3phpsdk\core\MessageHolder;
+use Ks3phpsdk\core\QueryAuthSigner;
+use Ks3phpsdk\exceptions\Ks3ClientException;
+use Ks3phpsdk\lib\RequestCore;
+
 //使用时请在项目中引用该php文件
 //设置默认时区
 date_default_timezone_set('Asia/Shanghai');
@@ -27,17 +36,6 @@ if(!defined("KS3_API_DEBUG_MODE"))
 define("KS3_API_DEBUG_MODE",FALSE);
 define("KS3_API_Author","lijunwei@kingsoft.com");
 define("KS3_API_Version","1.2");
-
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."config".DIRECTORY_SEPARATOR."Consts.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."API.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Signers.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Ks3Request.class.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Handlers.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Builders.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Logger.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."MessageHolder.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."lib".DIRECTORY_SEPARATOR."RequestCore.class.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."exceptions".DIRECTORY_SEPARATOR."Exceptions.php";
 
 if(function_exists('get_loaded_extensions')){
 	//检测curl扩展

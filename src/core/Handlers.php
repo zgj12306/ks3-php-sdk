@@ -1,11 +1,13 @@
 <?php
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."exceptions".DIRECTORY_SEPARATOR."Exceptions.php";
+namespace Ks3phpsdk\core;
+
+use Ks3phpsdk\exceptions\Ks3ServiceException;
 
 interface Handler{
-	public function handle(ResponseCore $response);
+	public function handle(\ResponseCore $response);
 }
 class ErrorResponseHandler implements Handler{
-	public function handle(ResponseCore $response){
+	public function handle(\ResponseCore $response){
 		$code = $response->status;
 		if($code >= 400){
 			$exception = new Ks3ServiceException();
@@ -25,7 +27,7 @@ class ErrorResponseHandler implements Handler{
 }
 class ListBucketsHandler implements Handler{
 
-	public function handle(ResponseCore $response){
+	public function handle(\ResponseCore $response){
 		$result = array();
 		$xml = new SimpleXMLElement($response->body);
 		foreach ($xml->Buckets->Bucket as $bucketXml) {

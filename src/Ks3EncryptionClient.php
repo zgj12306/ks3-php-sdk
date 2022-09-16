@@ -1,12 +1,13 @@
 <?php
+namespace Ks3phpsdk;
+
+use Ks3phpsdk\encryption\EncryptionEO;
+use Ks3phpsdk\encryption\EncryptionUtil;
+
 //使用客户端加密的方式上传下载文件
 //检测API路径
 if(!defined('KS3_API_PATH'))
 define('KS3_API_PATH', dirname(__FILE__));
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."Ks3Client.class.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."encryption".DIRECTORY_SEPARATOR."EncryptionUtil.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."encryption".DIRECTORY_SEPARATOR."EncryptionHandlers.php";
-
 //加密模式
 //暂时仅支持EO,使用AES/CBC/PKCS5Padding算法对数据进行加密
 if(!defined("ENCRYPTPTION_MODE"))

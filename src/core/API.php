@@ -1,4 +1,6 @@
 <?php
+namespace Ks3phpsdk\core;
+
 /*
 redirect:跳转至对应的API，即别名
 method：HTTP Method

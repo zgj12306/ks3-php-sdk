@@ -1,7 +1,8 @@
 <?php
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."encryption".DIRECTORY_SEPARATOR."EncryptionUtil.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."encryption".DIRECTORY_SEPARATOR."EncryptionCallBack.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."exceptions".DIRECTORY_SEPARATOR."Exceptions.php";
+namespace Ks3phpsdk\encryption;
+
+use Ks3phpsdk\exceptions\Ks3ClientException;
+
 interface EncryptionHandler{
 	public function putObjectByContentSecurely($args=array());
 	public function putObjectByFileSecurely($args=array());

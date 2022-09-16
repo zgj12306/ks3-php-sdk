@@ -1,9 +1,8 @@
 <?php
+namespace Ks3phpsdk\core;
 
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Headers.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Utils.class.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."config".DIRECTORY_SEPARATOR."Consts.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."exceptions".DIRECTORY_SEPARATOR."Exceptions.php";
+use Ks3phpsdk\config\Consts;
+use Ks3phpsdk\exceptions\Ks3ClientException;
 
 interface Signer{
 	public function sign( Ks3Request $request,$args=array());

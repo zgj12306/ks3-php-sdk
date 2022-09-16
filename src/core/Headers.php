@@ -1,4 +1,6 @@
 <?php
+namespace Ks3phpsdk\core;
+
 class Headers{
 	static $Date = "Date";
 	static $Authorization = "Authorization";

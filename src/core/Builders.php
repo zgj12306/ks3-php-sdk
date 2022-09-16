@@ -1,12 +1,14 @@
 <?php
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."exceptions".DIRECTORY_SEPARATOR."Exceptions.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."config".DIRECTORY_SEPARATOR."Consts.php";
+namespace Ks3phpsdk\core;
+
+use Ks3phpsdk\exceptions\Ks3ClientException;
+use Ks3phpsdk\config\Consts;
 
 class LocationBuilder{
 	function build($args){
 		if(isset($args["Location"])){
 			$location = $args["Location"];
-			$xml = new SimpleXmlElement('<CreateBucketConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"></CreateBucketConfiguration>');
+			$xml = new \SimpleXmlElement('<CreateBucketConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"></CreateBucketConfiguration>');
 			$xml->addChild("LocationConstraint",$args["Location"]);
 			return $xml->asXml();
 		}
@@ -16,7 +18,7 @@ class CORSBuilder{
 	function build($args){
 		if(isset($args["CORS"])){
 			$cors = $args["CORS"];
-			$xml = new SimpleXmlElement('<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"></CORSConfiguration>');
+			$xml = new \SimpleXmlElement('<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"></CORSConfiguration>');
 			if(is_array($cors)){
 				foreach ($cors as $key => $rule) {
 					$ruleXml = $xml->addChild("CORSRule");
@@ -69,7 +71,7 @@ class DeleteObjectsBuilder{
 	function build($args){
 		if(isset($args["DeleteKeys"])){
 			$keys = $args["DeleteKeys"];
-			$xml = new SimpleXmlElement('<Delete></Delete>');
+			$xml = new \SimpleXmlElement('<Delete></Delete>');
 			if(is_array($keys)){
 				foreach ($keys as $key => $value) {
 					$object = $xml->addChild("Object");
@@ -84,7 +86,7 @@ class CompleteMultipartUploadBuilder{
 	function build($args){
 		if(isset($args["Parts"])){
 			$parts = $args["Parts"];
-			$xml = new SimpleXmlElement('<CompleteMultipartUpload></CompleteMultipartUpload>');
+			$xml = new \SimpleXmlElement('<CompleteMultipartUpload></CompleteMultipartUpload>');
 			if(is_array($parts)){
 				foreach ($parts as $part) {
 					$partXml = $xml->addChild("Part");

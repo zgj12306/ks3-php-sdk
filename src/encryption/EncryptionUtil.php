@@ -1,4 +1,6 @@
 <?php
+namespace Ks3phpsdk\encryption;
+
 class EncryptionUtil{
 	public static $INSTRUCTION_SUFFIX = ".instruction";
 	public static function genereateOnceUsedKey($length=32){

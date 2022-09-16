@@ -1,5 +1,6 @@
 <?php
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Headers.php";
+namespace Ks3phpsdk\config;
+
 
 class Consts {
 	// static $Ks3EndPoint = "kss.ksyun.com";
