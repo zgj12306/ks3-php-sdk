@@ -2,13 +2,15 @@
 namespace Ks3phpsdk;
 
 use Ks3phpsdk\core\API;
+use Ks3phpsdk\core\Headers;
 use Ks3phpsdk\core\Ks3Request;
 use Ks3phpsdk\core\Logger;
 use Ks3phpsdk\core\MessageHolder;
-use Ks3phpsdk\core\QueryAuthSigner;
-use Ks3phpsdk\core\DefaultUserAgentSigner;
+use Ks3phpsdk\core\signers\QueryAuthSigner;
+use Ks3phpsdk\core\Utils;
 use Ks3phpsdk\exceptions\Ks3ClientException;
 use Ks3phpsdk\lib\RequestCore;
+use Ks3phpsdk\lib\ResponseCore;
 
 //使用时请在项目中引用该php文件
 //设置默认时区
@@ -37,10 +39,6 @@ if(!defined("KS3_API_DEBUG_MODE"))
 define("KS3_API_DEBUG_MODE",FALSE);
 define("KS3_API_Author","lijunwei@kingsoft.com");
 define("KS3_API_Version","1.2");
-
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Signers.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Handlers.php";
-require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Builders.php";
 
 if(function_exists('get_loaded_extensions')){
 	//检测curl扩展
@@ -232,7 +230,8 @@ class Ks3Client{
 		if(isset($api["body"])){
 			if(isset($api["body"]["builder"])){
 				$builderName = $api["body"]["builder"];
-				$builder = new $builderName();
+				$class = "Ks3phpsdk\\core\\builders\\$builderName";
+				$builder = new $class();
 				$request->body = $builder->build($args);
 			}else if(isset($api["body"]["position"])){
 				$position = $api["body"]["position"];
@@ -261,7 +260,8 @@ class Ks3Client{
 		if(isset($api["signer"])){
 			$signers = explode("->",$api["signer"]);
 			foreach ($signers as $key => $value) {
-				$signer = new $value();
+				$class = "Ks3phpsdk\\core\\signers\\$value";
+				$signer = new $class();
 				$log = $signer->sign($request,array("accessKey"=>$this->accessKey,"secretKey"=>$this->secretKey,"args"=>$args));
 				if(!empty($log)){
 					$holder->msg.=$log."\r\n";
@@ -330,7 +330,8 @@ class Ks3Client{
 			$holder->msg.="response body->".$body."\r\n";
 			$handlers = explode("->",$api["handler"]);
 			foreach ($handlers as $key => $value) {
-				$handler = new $value();
+				$class = "Ks3phpsdk\\core\\handlers\\$value";
+				$handler = new $class();
 				$data = $handler->handle($data);
 			}
 			return $data;

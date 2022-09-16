@@ -21,7 +21,8 @@
   "minimum-stability": "stable",  
   "require": {  
     "php": ">=5.4.0",
-    "ext-simplexml": "*"
+    "ext-simplexml": "*",
+    "ext-openssl": "*"
   },  
   "autoload": {  
     "psr-4": {  

@@ -3,6 +3,7 @@ namespace Ks3phpsdk;
 
 use Ks3phpsdk\encryption\EncryptionEO;
 use Ks3phpsdk\encryption\EncryptionUtil;
+use Ks3phpsdk\exceptions\Ks3ClientException;
 
 //使用客户端加密的方式上传下载文件
 //检测API路径
