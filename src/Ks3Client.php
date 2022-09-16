@@ -37,6 +37,10 @@ define("KS3_API_DEBUG_MODE",FALSE);
 define("KS3_API_Author","lijunwei@kingsoft.com");
 define("KS3_API_Version","1.2");
 
+require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Signers.php";
+require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Handlers.php";
+require_once KS3_API_PATH.DIRECTORY_SEPARATOR."core".DIRECTORY_SEPARATOR."Builders.php";
+
 if(function_exists('get_loaded_extensions')){
 	//检测curl扩展
 	$extensions = get_loaded_extensions();
