@@ -6,6 +6,7 @@ use Ks3phpsdk\core\Ks3Request;
 use Ks3phpsdk\core\Logger;
 use Ks3phpsdk\core\MessageHolder;
 use Ks3phpsdk\core\QueryAuthSigner;
+use Ks3phpsdk\core\DefaultUserAgentSigner;
 use Ks3phpsdk\exceptions\Ks3ClientException;
 use Ks3phpsdk\lib\RequestCore;
 
