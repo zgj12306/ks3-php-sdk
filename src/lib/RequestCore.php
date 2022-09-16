@@ -97,7 +97,7 @@ class RequestCore
 	/**
 	 * The default class to use for HTTP Responses (defaults to <ResponseCore>).
 	 */
-	public $response_class = 'ResponseCore';
+	public $response_class = "Ks3phpsdk\\lib\\ResponseCore";
 
 	/**
 	 * Default useragent string to use.

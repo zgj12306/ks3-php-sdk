@@ -8,7 +8,7 @@ use Ks3phpsdk\lib\ResponseCore;
 class ListMutipartUploadsHandler implements Handler{
     public function handle(ResponseCore $response){
         $mutiUploads = array();
-        $xml = new SimpleXMLElement($response->body);
+        $xml = new \SimpleXMLElement($response->body);
 
         $mutiUploads["Bucket"]=$xml->Bucket->__toString();
         $mutiUploads["KeyMarker"]=$xml->KeyMarker->__toString();

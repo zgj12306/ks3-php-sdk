@@ -9,7 +9,7 @@ class ListBucketsHandler implements Handler{
 
     public function handle(ResponseCore $response){
         $result = array();
-        $xml = new SimpleXMLElement($response->body);
+        $xml = new \SimpleXMLElement($response->body);
         foreach ($xml->Buckets->Bucket as $bucketXml) {
             $bucket = array();
             foreach ($bucketXml->children() as $key => $value) {

@@ -10,7 +10,7 @@ class GetAclHandler implements Handler{
     public function handle(ResponseCore $response){
         $hasread = FALSE;
         $haswrite = FALSE;
-        $xml = new SimpleXMLElement($response->body);
+        $xml = new \SimpleXMLElement($response->body);
         $acl = $xml->AccessControlList;
         foreach ($acl->children() as $grant) {
             $permission = $grant->Permission->__toString();
